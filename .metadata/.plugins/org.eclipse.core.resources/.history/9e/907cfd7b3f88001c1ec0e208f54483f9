@@ -1,0 +1,97 @@
+import java.util.Iterator;
+import java.util.Objects;
+
+public class Password {
+	//pondremos "static final"es accesible para todos los objetos, pero no se almacena, por lo que es más óptimo, ya que es una constante//
+	private int longitud;
+	private String contrasenna;
+	private static final int longitudPorDefecto=8;
+	public Password() {
+		super();
+		this.contrasenna=generarContrasenna(longitudPorDefecto);
+	}
+	
+	public Password(int longitud) {
+		super();
+		this.longitud = longitud;
+		this.contrasenna=generarContrasenna(longitudPorDefecto);
+	}
+
+	public int getLongitud() {
+		return longitud;
+	}
+
+	public String getContrasenna() {
+		return contrasenna;
+	}
+
+	private String generarContrasenna(int longitud) {
+		int ascii;
+		String resultado="";
+		for (int i = 0; i < this.longitud; i++) {
+			ascii=(int) (Math.random()*123);
+			while (ascii<33) {
+				ascii=(int) (Math.random()*123);
+			}resultado+=(char)ascii;
+		}return resultado;
+		
+	}
+	
+	public boolean esFuerte() {
+		int valor,mayuscula=0,minuscula=0, numeros=5;
+		for (int i = 0; i < this.contrasenna.length(); i++) {
+			valor=this.contrasenna.charAt(i);
+				if(mayuscula>64 && mayuscula<90) {
+					mayuscula++;
+				}
+				else if(minuscula>96 && minuscula<123) {
+					minuscula++;
+				}
+				else if(numeros>47 && numeros<122) {
+					numeros++;
+				}if(mayuscula>=2 || minuscula>=1 || numeros>=5) {
+					return true;		
+			}
+		}return false;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(contrasenna);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Password other = (Password) obj;
+		return Objects.equals(contrasenna, other.contrasenna);
+	}
+
+	@Override
+	public String toString() {
+		return "Password [contrasenna=" + contrasenna + "]";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+}
+

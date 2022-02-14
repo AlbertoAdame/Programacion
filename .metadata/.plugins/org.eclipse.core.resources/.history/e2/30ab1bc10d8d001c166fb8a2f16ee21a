@@ -1,0 +1,21 @@
+
+public class Linea {
+	private String puntoA;
+	private String puntoB;
+	
+	public Linea() {
+		this.puntoA="(0,0)";
+		this.puntoB="(0,0)";
+	}
+	
+	public Linea(String puntoA,String puntoB) {
+		this.puntoA="(0,0)";
+		this.puntoB="(0,0)";
+	}
+	
+	
+	
+	
+}
+
+

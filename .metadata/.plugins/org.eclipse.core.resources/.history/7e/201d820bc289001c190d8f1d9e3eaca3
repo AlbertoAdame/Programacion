@@ -1,0 +1,82 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static Scanner teclado = new Scanner (System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		String nombre,DNI;
+		char sexo;
+		int longitud,edad;
+		double peso,altura;
+		
+		peso=leerDouble("Introduce tu peso: ");
+		
+		altura=leerDouble("Introduce tu altura: ");	
+		
+		DNI=leerString("Introduce tu DNI: ");
+	
+		sexo=leerChar("Introduce tu sexo (H/M): ");
+		while (sexo!='H' && sexo!='M') {
+			sexo=leerChar("Valor no válido.Introduce tu sexo (H/M)");
+		}
+		
+		nombre=leerString("Introduce tu nombre: ");
+		
+		edad=leerInt("Introduce tu edad: ");
+		
+		longitud=leerInt("Introduce la longitud para tu contraseña: ");
+		
+		Password p1;
+		p1= new Password(longitud);
+		
+		System.out.println(p1);
+		
+		Password p3;
+		p3= new Password();
+		
+		System.out.println(p3);
+		System.out.println("¿Es mi contraseña fuerte?"+ p3.esFuerte());
+		
+		Persona p2;
+		p2 = new Persona(nombre, edad,DNI, sexo,peso,altura,longitud);
+		
+		System.out.println(p2);
+		System.out.println("Tu IMC es :\n" + p2.IMC());
+		if (p2.comprobarSexo(sexo))  System.out.println("El sexo introducido es el correcto.");
+		
+		
+		if (p2.mayorDeEdad()) 
+			System.out.println("Eres mayor de edad");
+		else System.out.println("Eres menor de edad");
+		
+		
+		
+//		Password p1;
+//		p1= new Password();
+//		
+//		System.out.println(p1);
+//				
+				
+		
+	}
+	
+	public static char leerChar(String texto) {
+		System.out.println(texto);
+		return teclado.nextLine().charAt(0);
+	}
+	public static String leerString(String texto) {
+		System.out.println(texto);
+		return teclado.nextLine();
+	}
+	public static double leerDouble(String texto) {
+		System.out.println(texto);
+		return Double.parseDouble(teclado.nextLine());
+	}
+	public static int leerInt(String texto) {
+		System.out.println(texto);
+		return Integer.parseInt(teclado.nextLine());
+	}
+
+}

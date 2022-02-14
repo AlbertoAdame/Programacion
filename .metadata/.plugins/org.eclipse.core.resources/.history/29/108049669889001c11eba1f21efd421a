@@ -1,0 +1,70 @@
+import java.util.Scanner;
+
+public class Main {
+	
+	public static Scanner teclado = new Scanner (System.in);
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Persona p2;
+		p2 = new Persona();
+		
+//		nombre, edad,DNI, sexo,peso,altura
+		
+		System.out.println(p2);
+
+		String nombre,DNI;
+		char sexo;
+		int longitud=10,edad;
+		double peso,altura;
+		
+		peso=leerDouble("Introduce tu peso: ");
+		altura=leerDouble("Introduce tu altura: ");	
+		DNI=leerString("Introduce tu DNI: ");
+		
+		
+		sexo=leerChar("Introduce tu sexo (H/M): ");
+		while (sexo!='H' && sexo!='M') {
+			sexo=leerChar("Valor no v�lido.Introduce tu sexo (H/M)");
+		}
+		nombre=leerString("Introduce tu nombre: ");
+		edad=leerInt("Introduce tu edad: ");
+		
+		Password p1;
+		p1= new Password(longitud);
+		
+		System.out.println(p1);
+		
+		
+		System.out.println(p2.IMC());
+		System.out.println(p2.comprobarSexo(sexo));
+		System.out.println(p2.mayorDeEdad());
+		
+		
+//		Password p1;
+//		p1= new Password();
+//		
+//		System.out.println(p1);
+//				
+				
+		
+	}
+	
+	public static char leerChar(String texto) {
+		System.out.println(texto);
+		return teclado.nextLine().charAt(0);
+	}
+	public static String leerString(String texto) {
+		System.out.println(texto);
+		return teclado.nextLine();
+	}
+	public static double leerDouble(String texto) {
+		System.out.println(texto);
+		return Double.parseDouble(teclado.nextLine());
+	}
+	public static int leerInt(String texto) {
+		System.out.println(texto);
+		return Integer.parseInt(teclado.nextLine());
+	}
+
+}

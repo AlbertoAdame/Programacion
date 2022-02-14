@@ -1,0 +1,16 @@
+
+public class Linea {
+	private String puntoA;
+	private String puntoB;
+	
+	public Linea() {
+		
+		
+	}
+	
+	
+	
+	
+}
+
+
